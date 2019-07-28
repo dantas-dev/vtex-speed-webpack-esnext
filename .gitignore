@@ -91,3 +91,4 @@ typings/
 dist/
 deploy/
 build/
+package-lock.json
