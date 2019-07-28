@@ -102,7 +102,7 @@ gulp.task('js:main', () => gulp.src(jsFiles)
   .pipe(webpack({
     mode: 'development',
     output: {
-      filename: `${vtex.prefix}-${vtex.store}-v-${parseInt(version)}.js`,
+      filename: `${vtex.prefix}-${vtex.store}-v-${version}.js`,
       path: path.resolve(__dirname, 'build/arquivos'),
     },
   }))
@@ -135,7 +135,7 @@ gulp.task('sass', () => gulp.src('./src/assets/scss/**/*.scss')
     })
       .on('error', onError),
   )
-  .pipe($.concat(`${vtex.prefix}-${vtex.store}-v-${parseInt(version)}.css`))
+  .pipe($.concat(`${vtex.prefix}-${vtex.store}-v-${version}.css`))
   .pipe(gulp.dest('./build/arquivos/'))
   .pipe($.connect.reload()));
 
@@ -144,6 +144,10 @@ gulp.task('css', () => gulp.src('assets/scss/*.css')
   .pipe($.connect.reload()));
 
 gulp.task('sass:deploy', () => gulp.src('build/arquivos/*.css')
+  .pipe($.autoprefixer({
+    browsers: ['last 99 versions'],
+    cascade: false,
+  }))
   .pipe(
     $.cssmin()
       .on('error', onError),
