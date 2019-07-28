@@ -8,7 +8,7 @@ I made this project in a few hours to help the community, currently I have no ti
 
 ## Getting Started
 
-**Before continuing,** please edit the `accountName, version, prefix, team, website` key to the `package.json` file:
+**Before continuing,** please edit the `store, version, prefix, team, website` key to the `package.json` file:
 ```json
 "vtex": {
     "store": "your-store-account-name",
