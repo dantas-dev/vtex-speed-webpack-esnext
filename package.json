@@ -1,0 +1,73 @@
+{
+  "name": "vtex-speed-webpack-esnext",
+  "author": "Eduardo Dantas <dantasleld@gmail.com> (https://dantasdev.com/)",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "Vtex Speed Webpack ESNext - reverse proxy, compilation, minification, optimization using esnext with webpack.",
+  "vtex": {
+    "store": "your-store-account-name",
+    "version": 1,
+    "prefix": "XY",
+    "team": "Your Team Name",
+    "website": "Your Website",
+    "environment": "vtexcommercestable",
+    "browser": "chrome",
+    "protocol": "https"
+  },
+  "scripts": {
+    "start": "gulp",
+    "deploy": "gulp deploy",
+    "clean": "gulp clean",
+    "lint": "gulp js:lint",
+    "precommit": "npm run lint"
+  },
+  "keywords": [
+    "vtex",
+    "speed",
+    "webpack",
+    "esnext",
+    "es6",
+    "gulp"
+  ],
+  "bugs": {
+    "url": "https://github.com/EduD/vtex-speed-webpack-esnext/issues"
+  },
+  "homepage": "https://github.com/EduD/vtex-speed-webpack-esnext#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "compass-importer": "^0.4.1",
+    "connect-http-please": "^0.3.0",
+    "del": "^3.0.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-header": "^2.0.5",
+    "gulp-hydra": "^1.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-open": "^3.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-uglify": "^3.0.0",
+    "husky": "^0.14.3",
+    "merge-stream": "^1.0.1",
+    "node-sass": "^4.12.0",
+    "proxy-middleware": "^0.15.0",
+    "run-sequence": "^2.2.1",
+    "serve-static": "^1.13.2",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {}
+}
