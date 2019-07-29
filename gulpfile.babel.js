@@ -126,7 +126,7 @@ gulp.task('js:deploy', () => gulp.src('./build/arquivos/*.js')
 
 
 // Handle with css
-gulp.task('sass', () => gulp.src('./src/assets/scss/**/*.scss')
+gulp.task('sass', () => gulp.src('./src/assets/scss/global.scss')
   .pipe(
     $.sass({
       importer: compass,
@@ -139,7 +139,19 @@ gulp.task('sass', () => gulp.src('./src/assets/scss/**/*.scss')
   .pipe(gulp.dest('./build/arquivos/'))
   .pipe($.connect.reload()));
 
-gulp.task('css', () => gulp.src('assets/scss/*.css')
+gulp.task('sass:checkout', () => gulp.src('./src/assets/scss/checkout-custom.scss')
+  .pipe(
+    $.sass({
+      importer: compass,
+      sourceMap: true,
+      sourceMapEmbed: true,
+    })
+      .on('error', onError),
+  )
+  .pipe(gulp.dest('./build/arquivos/'))
+  .pipe($.connect.reload()));
+
+gulp.task('css', () => gulp.src('assets/scss/**/*.css')
   .pipe(gulp.dest('./build/arquivos/'))
   .pipe($.connect.reload()));
 
@@ -164,14 +176,34 @@ gulp.task('watch', () => {
   gulp.watch(['./src/assets/scss/**/*.scss'], ['sass']);
 });
 
+gulp.task('watch:checkout', () => {
+  gulp.watch(['./src/assets/scss/*.css'], ['css']);
+  gulp.watch(['./src/assets/scss/**/*.scss'], ['sass:checkout']);
+});
+
 // eslint-disable-next-line arrow-body-style
 gulp.task('build', (done) => {
   return runSequence(['js', 'sass', 'css'], done);
 });
 
 // eslint-disable-next-line arrow-body-style
+gulp.task('build:checkout', (done) => {
+  return runSequence(['sass:checkout', 'css'], done);
+});
+
+// eslint-disable-next-line arrow-body-style
 gulp.task('deploy', (done) => {
   return runSequence('clean', 'build', ['js:deploy', 'sass:deploy'], done);
+});
+
+// eslint-disable-next-line arrow-body-style
+gulp.task('checkout', (done) => {
+  return runSequence('clean', ['connect', 'build:checkout', 'watch:checkout'], done);
+});
+
+// eslint-disable-next-line arrow-body-style
+gulp.task('checkout:deploy', (done) => {
+  return runSequence('clean', 'build:checkout', 'sass:deploy', done);
 });
 
 // eslint-disable-next-line arrow-body-style

@@ -19,6 +19,8 @@
     "deploy": "gulp deploy",
     "clean": "gulp clean",
     "lint": "gulp js:lint",
+    "checkout": "gulp checkout",
+    "checkout:deploy": "gulp checkout:deploy",
     "precommit": "npm run lint"
   },
   "keywords": [
