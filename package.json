@@ -23,6 +23,9 @@
     "checkout:deploy": "gulp checkout:deploy",
     "precommit": "npm run lint"
   },
+  "browserslist": [
+    "last 99 version"
+  ],
   "keywords": [
     "vtex",
     "speed",

@@ -157,7 +157,6 @@ gulp.task('css', () => gulp.src('assets/scss/**/*.css')
 
 gulp.task('sass:deploy', () => gulp.src('build/arquivos/*.css')
   .pipe($.autoprefixer({
-    browsers: ['last 99 versions'],
     cascade: false,
   }))
   .pipe(
